@@ -1,0 +1,40 @@
+/* 引入 TailwindCSS 样式 */
+@import "./globals.css";
+
+/* 白噪音状态栏和面板样式 */
+.status-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0 8px;
+  user-select: none;
+}
+
+/* 状态栏悬停样式 */
+.status-bar-item:hover {
+  background-color: var(--interactive-hover);
+}
+
+/* 红色文本样式 */
+.wn-text-red-500 {
+  color: var(--text-error);
+}
+
+/* 图标容器样式 */
+.obsidian-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.white-noise-play-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.white-noise-play-button polygon {
+  fill: currentColor;
+  stroke: currentColor;
+}
