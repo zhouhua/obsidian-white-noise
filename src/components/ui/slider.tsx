@@ -1,26 +1,100 @@
-import * as React from "react"
-import * as SliderPrimitive from "@radix-ui/react-slider"
+import React, { useEffect, useRef } from 'react';
+import { SliderComponent } from 'obsidian';
 
-import { cn } from "../../lib/utils"
+interface SliderProps {
+  value: number;
+  onChange: (value: number) => void;
+  min?: number;
+  max?: number;
+  step?: number;
+  id?: string;
+  disabled?: boolean;
+  className?: string;
+}
 
-const Slider = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <SliderPrimitive.Root
-    ref={ref}
-    className={cn(
-      "wn-relative wn-flex wn-w-full wn-touch-none wn-select-none wn-items-center",
-      className
-    )}
-    {...props}
-  >
-    <SliderPrimitive.Track className="wn-relative wn-h-1.5 wn-w-full wn-grow wn-overflow-hidden wn-rounded-full wn-bg-primary/20">
-      <SliderPrimitive.Range className="wn-absolute wn-h-full wn-bg-primary" />
-    </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="wn-block wn-h-4 wn-w-4 wn-rounded-full wn-border wn-border-primary/50 wn-bg-background wn-shadow wn-transition-colors focus-visible:wn-outline-none focus-visible:wn-ring-1 focus-visible:wn-ring-ring disabled:wn-pointer-events-none disabled:wn-opacity-50" />
-  </SliderPrimitive.Root>
-))
-Slider.displayName = SliderPrimitive.Root.displayName
+/**
+ * 封装 Obsidian 的 SliderComponent 的 React 组件
+ */
+export const Slider: React.FC<SliderProps> = ({
+  value,
+  onChange,
+  min = 0,
+  max = 1,
+  step = 0.01,
+  id,
+  disabled = false,
+  className = "",
+}) => {
+  // 容器 ref
+  const containerRef = useRef<HTMLElement | null>(null);
+  // 使用 ref 追踪 SliderComponent 实例
+  const sliderRef = useRef<SliderComponent | null>(null);
 
-export { Slider } 
+  // 组件初始化和清理
+  useEffect(() => {
+    // 创建一个新的容器元素
+    const container = document.createElement('div');
+    container.className = className;
+    if (id) container.dataset.id = id;
+
+    // 将容器添加到 DOM
+    if (containerRef.current) {
+      containerRef.current.appendChild(container);
+    }
+
+    // 创建 SliderComponent 实例
+    const slider = new SliderComponent(container);
+
+    // 设置滑块属性
+    slider.setLimits(min, max, step);
+    slider.setValue(value);
+    slider.onChange(onChange);
+
+    // 如果禁用，添加禁用类
+    if (disabled) {
+      container.classList.add('is-disabled');
+    }
+
+    // 保存引用
+    sliderRef.current = slider;
+
+    // 在组件卸载时清理
+    return () => {
+      if (containerRef.current && container.parentNode === containerRef.current) {
+        containerRef.current.removeChild(container);
+      }
+      sliderRef.current = null;
+    };
+  }, []);
+
+  // 响应值变化
+  useEffect(() => {
+    if (sliderRef.current && sliderRef.current.getValue() !== value) {
+      sliderRef.current.setValue(value);
+    }
+  }, [value]);
+
+  // 响应最小值、最大值、步长变化
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.setLimits(min, max, step);
+    }
+  }, [min, max, step]);
+
+  // 响应禁用状态变化
+  useEffect(() => {
+    if (sliderRef.current && containerRef.current) {
+      const container = containerRef.current.firstChild as HTMLElement;
+      if (container) {
+        if (disabled) {
+          container.classList.add('is-disabled');
+        } else {
+          container.classList.remove('is-disabled');
+        }
+      }
+    }
+  }, [disabled]);
+
+  // 返回一个空的 span 作为容器的父元素
+  return <span ref={containerRef} />;
+}; 

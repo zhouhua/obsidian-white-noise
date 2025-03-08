@@ -19,9 +19,7 @@ export interface Sound {
 export interface WhiteNoiseSettings {
   volume: number;
   defaultSound: string;
-  autoPlay: boolean;
   defaultTimer: number; // 分钟
-  showStatusBar: boolean;
   stopSoundOnTimerEnd: boolean; // 定时器结束时是否停止声音
   playAlertOnTimerEnd: boolean; // 定时器结束时是否播放提示音
 }
@@ -29,29 +27,13 @@ export interface WhiteNoiseSettings {
 // 默认设置
 export const DEFAULT_SETTINGS: WhiteNoiseSettings = {
   volume: 0.5,
-  defaultSound: 'nature/waves',
-  autoPlay: false,
+  defaultSound: 'rain/light-rain',
   defaultTimer: 0, // 0 表示无定时器
-  showStatusBar: true,
   stopSoundOnTimerEnd: true, // 默认定时器结束时停止声音
   playAlertOnTimerEnd: false, // 默认定时器结束时不播放提示音
 };
 
 export interface IWhiteNoisePlugin {
-  isPlaying: boolean;
-  currentSound: Sound | null;
   settings: WhiteNoiseSettings;
-  timerEndTime: number | null;
-  categories: SoundCategory[];
-  audioElement: HTMLAudioElement | null;
-
-  getSoundById(id: string): Sound | null;
-  playSound(sound: Sound): void;
-  pauseSound(): void;
-  resumeSound(): void;
-  stopSound(): void;
-  setVolume(volume: number): void;
-  setTimer(minutes: number, stopSoundOnEnd: boolean, playAlertOnEnd: boolean): void;
-  clearTimer(): void;
   updateStatusBar(): void;
 }

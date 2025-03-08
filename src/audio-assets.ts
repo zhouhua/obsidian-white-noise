@@ -1,11 +1,4 @@
 // 这个文件负责导入所有音频文件
-// 音频资源结构
-export interface AudioAsset {
-  name: string;
-  id: string;
-  src: string;
-  category: string;
-}
 
 // 动物声音
 import birdsSrc from '../sounds/animals/birds.mp3';
@@ -72,12 +65,13 @@ import roadSrc from '../sounds/urban/road.mp3';
 import trafficSrc from '../sounds/urban/traffic.mp3';
 
 import alarmSrc from '../sounds/alarm.mp3';
+import { Sound } from './types';
 
 export { alarmSrc };
 
 // 音频资源列表
 // 定义所有音频的路径和元数据
-export const audioAssets: AudioAsset[] = [
+export const audioAssets: Sound[] = [
   // 动物声音
   { id: 'animals/birds', name: '鸟叫', src: birdsSrc, category: 'animals' },
   { id: 'animals/crickets', name: '蟋蟀', src: cricketsSrc, category: 'animals' },
@@ -143,8 +137,3 @@ export const audioAssets: AudioAsset[] = [
   { id: 'urban/road', name: '道路', src: roadSrc, category: 'urban' },
   { id: 'urban/traffic', name: '交通', src: trafficSrc, category: 'urban' },
 ];
-
-// 通过ID查找音频资源
-export function getAudioById(id: string): AudioAsset | undefined {
-  return audioAssets.find(audio => audio.id === id);
-} 

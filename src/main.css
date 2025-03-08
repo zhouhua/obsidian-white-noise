@@ -11,105 +11,9 @@
   user-select: none;
 }
 
-.white-noise-panel {
-  width: 320px;
-  max-height: 400px;
-  overflow-y: auto;
-}
-
 /* 状态栏悬停样式 */
 .status-bar-item:hover {
   background-color: var(--interactive-hover);
-}
-
-/* 播放控制样式 */
-.playback-controls .wn-text-primary {
-  color: var(--interactive-accent);
-}
-
-/* 自定义复选框和按钮样式 */
-.white-noise-panel .checkbox-container {
-  display: flex;
-  align-items: center;
-}
-
-.white-noise-panel .clickable-icon {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: var(--background-modifier-hover);
-  border: 1px solid var(--background-modifier-border);
-  color: var(--text-normal);
-  transition: all 0.1s ease;
-}
-
-/* 纯图标按钮样式 */
-.white-noise-panel .icon-btn {
-  display: flex;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-}
-
-/* 大型播放按钮样式 */
-.white-noise-panel .play-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--interactive-accent);
-  color: var(--text-on-accent);
-  border: none;
-}
-
-.white-noise-panel .play-btn:hover {
-  background-color: var(--interactive-accent-hover);
-}
-
-.white-noise-panel .large-icon {
-  font-size: 1.5em;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.white-noise-panel .clickable-icon:hover {
-  background-color: var(--background-modifier-hover-hover);
-}
-
-.white-noise-panel .clickable-icon.mod-active {
-  background-color: var(--interactive-accent);
-  color: var(--text-on-accent);
-}
-
-/* 输入范围/滑块样式 */
-.white-noise-panel .slider {
-  width: 100%;
-  margin: 8px 0;
-}
-
-/* 修复图标垂直对齐 */
-.white-noise-panel .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 分隔线样式 */
-.white-noise-panel hr {
-  margin: 8px 0;
-  border: none;
-  height: 1px;
-  background-color: var(--background-modifier-border);
 }
 
 /* 红色文本样式 */
@@ -117,9 +21,20 @@
   color: var(--text-error);
 }
 
-/* 响应式调整 */
-@media (max-width: 600px) {
-  .white-noise-panel {
-    width: 280px;
-  }
+/* 图标容器样式 */
+.obsidian-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.white-noise-play-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.white-noise-play-button polygon {
+  fill: currentColor;
+  stroke: currentColor;
 }
