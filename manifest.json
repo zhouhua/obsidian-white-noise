@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-white-noise",
 	"name": "White Noise",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"minAppVersion": "1.7.7",
 	"description": "Play white noise in Obsidian to help you focus on your work",
 	"author": "Zhou Hua",
