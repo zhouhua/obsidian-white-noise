@@ -1,7 +1,7 @@
 {
   "name": "obsidian-white-noise",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Play white noise in Obsidian to help you focus on your work",
   "author": "zhouhua",
   "license": "MIT",
