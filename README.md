@@ -1,4 +1,4 @@
-# Obsidian White Noise Plugin
+# White Noise Plugin
 
 [中文版本](README-zh.md)
 

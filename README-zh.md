@@ -1,4 +1,4 @@
-# Obsidian 白噪音插件
+# 白噪音插件
 
 [English Version](README.md)
 
