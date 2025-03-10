@@ -20,11 +20,6 @@ import walkOnLeavesSrc from '../sounds/nature/walk-on-leaves.mp3';
 import waterfallSrc from '../sounds/nature/waterfall.mp3';
 import wavesSrc from '../sounds/nature/waves.mp3';
 
-// 基础噪音
-import brownNoiseSrc from '../sounds/noise/brown-noise.wav';
-import pinkNoiseSrc from '../sounds/noise/pink-noise.wav';
-import whiteNoiseSrc from '../sounds/noise/white-noise.wav';
-
 // 场所环境
 import cafeSrc from '../sounds/places/cafe.mp3';
 import churchSrc from '../sounds/places/church.mp3';
@@ -93,18 +88,13 @@ export const audioAssets: Sound[] = [
   { id: 'nature/waterfall', name: L.sounds.waterfall(), src: waterfallSrc, category: 'nature' },
   { id: 'nature/waves', name: L.sounds.waves(), src: wavesSrc, category: 'nature' },
 
-  // 基础噪音
-  { id: 'noise/brown-noise', name: L.sounds.brownNoise(), src: brownNoiseSrc, category: 'noise' },
-  { id: 'noise/pink-noise', name: L.sounds.pinkNoise(), src: pinkNoiseSrc, category: 'noise' },
-  { id: 'noise/white-noise', name: L.sounds.whiteNoise(), src: whiteNoiseSrc, category: 'noise' },
-
   // 场所环境
   { id: 'places/cafe', name: L.sounds.cafe(), src: cafeSrc, category: 'places' },
   { id: 'places/church', name: L.sounds.church(), src: churchSrc, category: 'places' },
   { id: 'places/construction-site', name: L.sounds.constructionSite(), src: constructionSiteSrc, category: 'places' },
   { id: 'places/crowded-bar', name: L.sounds.crowdedBar(), src: crowdedBarSrc, category: 'places' },
   { id: 'places/laboratory', name: L.sounds.laboratory(), src: laboratorySrc, category: 'places' },
-  { id: 'places/laundry-room', name: '洗衣房', src: laundryRoomSrc, category: 'places' },
+  { id: 'places/laundry-room', name: L.sounds.laundryRoom(), src: laundryRoomSrc, category: 'places' },
   { id: 'places/night-village', name: L.sounds.nightVillage(), src: nightVillageSrc, category: 'places' },
   { id: 'places/office', name: L.sounds.office(), src: officeSrc, category: 'places' },
   { id: 'places/subway-station', name: L.sounds.subwayStation(), src: subwayStationSrc, category: 'places' },

@@ -7,7 +7,6 @@ import L from "src/L";
 export const categories: SoundCategory[] = [
   { id: 'animals', name: L.categories.animals(), icon: '🐾', sounds: [] },
   { id: 'nature', name: L.categories.nature(), icon: '🌿', sounds: [] },
-  { id: 'noise', name: L.categories.noise(), icon: '📻', sounds: [] },
   { id: 'places', name: L.categories.places(), icon: '🏙️', sounds: [] },
   { id: 'rain', name: L.categories.rain(), icon: '🌧️', sounds: [] },
   { id: 'things', name: L.categories.things(), icon: '🔔', sounds: [] },
