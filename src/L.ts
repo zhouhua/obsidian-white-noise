@@ -1,3 +1,4 @@
+import { getLanguage } from 'obsidian';
 import { loadAllLocales } from './i18n/i18n-util.sync';
 import { i18n } from './i18n/i18n-util';
 import type { Locales } from './i18n/i18n-types';
@@ -14,7 +15,8 @@ declare global {
 
 let locale: Locales = 'en';
 try {
-  locale = (window.i18next.language || '').startsWith('zh') ? 'zh' : 'en';
+  console.log(getLanguage());
+  locale = getLanguage().startsWith('zh') ? 'zh' : 'en';
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 catch (e) {

@@ -10,6 +10,10 @@ A white noise plugin for Obsidian designed to help users focus better and enter 
 - **Volume Control**: Independently control the white noise volume, which can coexist with your music
 - **Timer Function**: Built-in simple pomodoro timer that works in conjunction with white noise
 
+## Screenshot
+
+![screenshot](./screenshots/screenshot.png)
+
 ## Installation
 
 1. Open Obsidian and navigate to **Settings**
@@ -20,6 +24,7 @@ A white noise plugin for Obsidian designed to help users focus better and enter 
 ## Credits
 
 This plugin uses sound materials from the [Moodist](https://github.com/remvze/moodist) project. To better adapt to the Obsidian environment, some sound materials have been modified:
+
 - Removed some potentially anxiety-inducing sound effects (such as thunder)
 - Removed several oversized audio files to reduce the plugin size
 - Further compressed the audio, modified to variable bit rate, merged dual channels into joint stereo, and preserved only sounds between 40Hz ~ 15000Hz
