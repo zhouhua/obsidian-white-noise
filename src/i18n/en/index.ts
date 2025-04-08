@@ -19,7 +19,7 @@ const en = {
 		'90': '1.5 hours',
 		'120': '2 hours',
 	},
-	config: 'White Noise Settings',
+	config: 'White Noise',
 	paused: '[Paused] ',
 	stopped: '[Time up] ',
 	notPlaying: 'Not playing white noise',

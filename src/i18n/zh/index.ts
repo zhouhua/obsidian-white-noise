@@ -19,7 +19,7 @@ const zh = {
     '90': '1.5小时',
     '120': '2小时',
   },
-  config: '白噪音设置',
+  config: '白噪音',
   paused: '[暂停] ',
   stopped: '[时间到] ',
   notPlaying: '白噪音未播放',
